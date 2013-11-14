@@ -290,9 +290,9 @@
           this.api.fail("SwaggerResources must have a path.");
         }
         if (this.path.substring(0, 4) === 'http') {
-          this.url = this.path.replace('{format}', 'json');
+          this.url = this.path.replace('{format}', 'json_pretty');
         } else {
-          this.url = this.api.basePath + this.path.replace('{format}', 'json');
+          this.url = this.api.basePath + this.path.replace('{format}', 'json_pretty');
         }
         this.api.progress('fetching resource ' + this.name + ': ' + this.url);
         obj = {
@@ -624,7 +624,7 @@
       if (this.method == null) {
         this.resource.api.fail("SwaggerOperation " + nickname + " is missing method.");
       }
-      this.path = this.path.replace('{format}', 'json');
+      this.path = this.path.replace('{format}', 'json_pretty');
       this.method = this.method.toLowerCase();
       this.isGetMethod = this.method === "get";
       this.resourceName = this.resource.name;
